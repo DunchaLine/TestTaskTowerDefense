@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class gunInstantiate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject _gun;
+    public GameObject _gunPrefab;
+    private bool canInstantiate = true;
+    void OnMouseUp()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("in OnMouseUp");
+        if (canInstantiate)
+        {
+            Debug.Log("In if");
+            _gun = Instantiate(_gunPrefab, transform.position, Quaternion.identity);
+            canInstantiate = false;
+        }
     }
 }
