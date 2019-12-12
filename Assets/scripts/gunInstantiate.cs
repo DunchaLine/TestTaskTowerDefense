@@ -11,10 +11,9 @@ public class gunInstantiate : MonoBehaviour
     private UpLevel _currLvl;
     void OnMouseUp()
     {
-        Debug.Log("in OnMouseUp");
         if (canInstantiate)
         {
-            Debug.Log("In if");
+            Debug.Log("Create gun");
             _gun = Instantiate(_gunPrefab, transform.position, Quaternion.identity);
             canInstantiate = false;
         }

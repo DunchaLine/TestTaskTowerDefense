@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float _speed;
+    private Transform waypoints;
+    private Transform curr_waypoint;
+    private int _indexWaypoint = 0;
+    private Vector3 _direction;
+    float rot = 0;
     void Start()
     {
-        
+        waypoints = GameObject.FindGameObjectWithTag("Waypoints").transform;
+        NextWaypoint();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        _direction = curr_waypoint.transform.position - transform.position;
+        transform.Translate(_direction.normalized * _speed * Time.deltaTime, Space.World);
+        if (_direction.magnitude <= .1f)
+        {
+            NextWaypoint();
+            _direction = curr_waypoint.transform.position - transform.position;
+            rot += Vector3.SignedAngle(_direction, transform.right, Vector3.up);
+            transform.rotation = Quaternion.AngleAxis(rot, transform.forward);
+            Debug.Log("angle: " + rot);
+        }
+    }
+
+    void NextWaypoint()
+    {
+        Debug.Log(_indexWaypoint);
+        _indexWaypoint++;
+        if (_indexWaypoint >= waypoints.childCount)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        curr_waypoint = waypoints.GetChild(_indexWaypoint);
     }
 }
