@@ -93,7 +93,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67b4a0f7a1996f40b73ac6e4c4f9452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gunPrefab: {fileID: 2557928947174987010, guid: d325a2c81572df24a8fdb3e1dfca3f5f,
+  levels:
+  - price: 300
+    _obj: {fileID: 5691488412316462094, guid: 7d7c3c36f4bf03043ba32ebb389ca4c9, type: 3}
+  - price: 200
+    _obj: {fileID: 2557928947174987010, guid: d325a2c81572df24a8fdb3e1dfca3f5f, type: 3}
+  - price: 300
+    _obj: {fileID: 1619592668425045472, guid: 21facf6c8d6db5d4ab4d899036dacb6d, type: 3}
+  _gunPrefab: {fileID: 5691488412316462094, guid: 7d7c3c36f4bf03043ba32ebb389ca4c9,
     type: 3}
 --- !u!61 &4519829992433111330
 BoxCollider2D:

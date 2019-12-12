@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\EnemySpawn.cs" />
      <Compile Include="Assets\scripts\gunInstantiate.cs" />
+     <Compile Include="Assets\scripts\UpGun.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>F:/unity proj/TestTaskTowerDefense/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

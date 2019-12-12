@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Collections;
 
 public class gunInstantiate : MonoBehaviour
-{
+{   
+    //public List<UpLevel> levels;
     private GameObject _gun;
     public GameObject _gunPrefab;
     private bool canInstantiate = true;
+    private UpLevel _currLvl;
     void OnMouseUp()
     {
         Debug.Log("in OnMouseUp");
@@ -17,4 +19,20 @@ public class gunInstantiate : MonoBehaviour
             canInstantiate = false;
         }
     }
+
+    // public UpLevel CurrLvl
+    // {
+    //     get
+        
+    //         return _currLvl;
+        
+    // }
+
+}
+
+[System.Serializable]
+public class UpLevel
+{
+    public int price;
+    public GameObject _obj;
 }
