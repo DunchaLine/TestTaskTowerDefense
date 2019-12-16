@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float _speed;
+    //public GameObject _managerObj;
     private Transform waypoints;
     private Transform curr_waypoint;
     private int _indexWaypoint = 0;
@@ -31,10 +32,11 @@ public class EnemyMovement : MonoBehaviour
 
     void NextWaypoint()
     {
-        Debug.Log(_indexWaypoint);
         _indexWaypoint++;
         if (_indexWaypoint >= waypoints.childCount)
         {
+            gManager _manager = GameObject.Find("GameManager").GetComponent<gManager>();
+            _manager.Health -= 1;
             Destroy(gameObject);
             return;
         }

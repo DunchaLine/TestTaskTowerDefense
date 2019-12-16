@@ -25,15 +25,6 @@ public class gunInstantiate : MonoBehaviour
             _manager.Gold -= _cost1lvl;
         }
     }
-
-    // public UpLevel CurrLvl
-    // {
-    //     get
-        
-    //         return _currLvl;
-        
-    // }
-
 }
 
 [System.Serializable]

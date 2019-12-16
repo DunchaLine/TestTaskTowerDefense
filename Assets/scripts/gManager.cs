@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gManager : MonoBehaviour
 {
     public Text _goldText;
     public Text _waveText;
     public Text _healthText;
-    public Text _loseText;
+    public GameObject _loseText;
     private int _gold;
     private int _wave;
     private int _health;
@@ -17,7 +18,18 @@ public class gManager : MonoBehaviour
     {
         Gold = 1000;
         Wave = 0;
-        Health = 10;
+        Health = 2;
+    }
+    void Update()
+    {
+        if (isLose)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene(0);
+                Time.timeScale = 1;
+            }
+        }
     }
     public int Gold
     {
@@ -53,10 +65,13 @@ public class gManager : MonoBehaviour
         {
             _health = value;
             _healthText.GetComponent<Text>().text = "Health: " + _health;
+            Debug.Log(isLose);
             if (_health <= 0 && !isLose)
             {
                 isLose = true;
-                _loseText.enabled = true;
+                _loseText.SetActive(true);
+                Time.timeScale = 0;
+                Debug.Log("fucking true" + isLose);
             }
         }
     }

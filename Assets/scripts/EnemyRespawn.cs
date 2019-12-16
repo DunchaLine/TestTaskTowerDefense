@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyRespawn : MonoBehaviour
 {
     public Wave[] _waves;
+    public GameObject _winText;
     public int _timeBetween = 10;
     public GameObject _managerObj;
     private gManager _manager;
@@ -47,8 +48,8 @@ public class EnemyRespawn : MonoBehaviour
         }
         else
         {
-            _manager.isLose = true;
-            _manager._loseText.enabled = true;
+            _winText.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
