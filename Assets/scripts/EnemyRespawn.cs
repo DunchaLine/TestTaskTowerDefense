@@ -12,11 +12,10 @@ public class EnemyRespawn : MonoBehaviour
     private gManager _manager;
     private float _lastSpawn;
     private int _enemiesSpawned;
-    private int _currWave;
+    public static int _currWave;
     void Start()
     {
         _enemiesSpawned = 0;
-        //_manager = GameObject.Find("GameManager").GetComponent<gManager>();
         _manager = _managerObj.GetComponent<gManager>();
         _lastSpawn = Time.time;
     }
@@ -58,5 +57,6 @@ public class Wave
 {
     public GameObject _enemy;
     public float spawnInterval = 2;
+    //public int maxEnemies = 20;
     public int maxEnemies = 20;
 }

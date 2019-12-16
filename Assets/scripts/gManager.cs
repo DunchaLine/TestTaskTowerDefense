@@ -71,7 +71,6 @@ public class gManager : MonoBehaviour
                 isLose = true;
                 _loseText.SetActive(true);
                 Time.timeScale = 0;
-                Debug.Log("fucking true" + isLose);
             }
         }
     }

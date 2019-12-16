@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float _speed;
-    //public GameObject _managerObj;
     private Transform waypoints;
     private Transform curr_waypoint;
     private int _indexWaypoint = 0;
