@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\EnemySpawn.cs" />
+     <Compile Include="Assets\scripts\EnemyMovement.cs" />
+     <Compile Include="Assets\scripts\EnemyRespawn.cs" />
+     <Compile Include="Assets\scripts\gManager.cs" />
      <Compile Include="Assets\scripts\gunInstantiate.cs" />
      <Compile Include="Assets\scripts\UpGun.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

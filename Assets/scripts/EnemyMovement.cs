@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawn : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public float _speed;
     private Transform waypoints;
     private Transform curr_waypoint;
     private int _indexWaypoint = 0;
     private Vector3 _direction;
-    float rot = 0;
+    private float rot = 0;
     void Start()
     {
         waypoints = GameObject.FindGameObjectWithTag("Waypoints").transform;
@@ -26,7 +26,6 @@ public class EnemySpawn : MonoBehaviour
             _direction = curr_waypoint.transform.position - transform.position;
             rot += Vector3.SignedAngle(_direction, transform.right, Vector3.up);
             transform.rotation = Quaternion.AngleAxis(rot, transform.forward);
-            Debug.Log("angle: " + rot);
         }
     }
 
