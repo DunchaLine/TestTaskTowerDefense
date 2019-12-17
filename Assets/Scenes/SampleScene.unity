@@ -43098,7 +43098,7 @@ PrefabInstance:
     - target: {fileID: 4179951540245676613, guid: 7d7c3c36f4bf03043ba32ebb389ca4c9,
         type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d7c3c36f4bf03043ba32ebb389ca4c9, type: 3}
@@ -43297,7 +43297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2035587646
 MonoBehaviour:
@@ -43314,20 +43314,20 @@ MonoBehaviour:
   _waves:
   - _enemy: {fileID: 1859123464206317551, guid: 0e76b5939be76bd4989635d4db91937e,
       type: 3}
-    spawnInterval: 2.5
+    spawnInterval: 2
     maxEnemies: 5
   - _enemy: {fileID: 1859123464206317551, guid: 0e76b5939be76bd4989635d4db91937e,
       type: 3}
-    spawnInterval: 2.2
-    maxEnemies: 7
+    spawnInterval: 2
+    maxEnemies: 5
   - _enemy: {fileID: 7446951070337685871, guid: 9469f111241a4e242938706d5db4ee43,
       type: 3}
     spawnInterval: 2
-    maxEnemies: 10
+    maxEnemies: 5
   - _enemy: {fileID: 7446951070337685871, guid: 9469f111241a4e242938706d5db4ee43,
       type: 3}
-    spawnInterval: 1.7
-    maxEnemies: 15
+    spawnInterval: 2
+    maxEnemies: 0
   _winText: {fileID: 0}
   _timeBetween: 10
   _managerObj: {fileID: 644382382}
@@ -45566,7 +45566,7 @@ PrefabInstance:
     - target: {fileID: 3981637744014572495, guid: 4f0e02fd30399ad48ab6394fe553b15c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3981637744014572495, guid: 4f0e02fd30399ad48ab6394fe553b15c,
         type: 3}

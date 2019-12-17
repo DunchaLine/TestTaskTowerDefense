@@ -44,8 +44,12 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <ItemGroup>     <Compile Include="Assets\scripts\EnemyMovement.cs" />
+  <ItemGroup>     <Compile Include="Assets\scripts\enemyHealth.cs" />
+     <Compile Include="Assets\scripts\enemyLVL.cs" />
+     <Compile Include="Assets\scripts\enemyLVL2.cs" />
+     <Compile Include="Assets\scripts\EnemyMovement.cs" />
      <Compile Include="Assets\scripts\EnemyRespawn.cs" />
+     <Compile Include="Assets\scripts\FireOnEnemy.cs" />
      <Compile Include="Assets\scripts\gManager.cs" />
      <Compile Include="Assets\scripts\gunInstantiate.cs" />
      <Compile Include="Assets\scripts\targetGun.cs" />

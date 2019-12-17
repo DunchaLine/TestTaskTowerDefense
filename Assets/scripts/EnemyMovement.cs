@@ -10,8 +10,12 @@ public class EnemyMovement : MonoBehaviour
     private int _indexWaypoint = 0;
     private Vector3 _direction;
     private float rot = 0;
+    private enemyHealth _health;
+    public GameObject _bulletObj;
+    public int _damage;
     void Start()
     {
+        _health = GetComponent<enemyHealth>();
         waypoints = GameObject.FindGameObjectWithTag("Waypoints").transform;
         NextWaypoint();
     }
@@ -35,10 +39,19 @@ public class EnemyMovement : MonoBehaviour
         if (_indexWaypoint >= waypoints.childCount)
         {
             gManager _manager = GameObject.Find("GameManager").GetComponent<gManager>();
-            _manager.Health -= 1;
+            _manager.Health -= _health._damage;
             Destroy(gameObject);
             return;
         }
         curr_waypoint = waypoints.GetChild(_indexWaypoint);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Bullet")
+        {
+            _health.Health -= _damage;
+            gManager _manager = GameObject.Find("GameManager").GetComponent<gManager>();
+        }
     }
 }

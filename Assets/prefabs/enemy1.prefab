@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9221918659638314214}
   - component: {fileID: 4723174923101614656}
-  - component: {fileID: 5676234272545196741}
   - component: {fileID: 1625000224177011283}
+  - component: {fileID: 5676234272545196741}
+  - component: {fileID: 238843135768288837}
+  - component: {fileID: 6940477043793020995}
   m_Layer: 0
   m_Name: enemy1
   m_TagString: Enemy
@@ -82,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5676234272545196741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859123464206317551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f1034c74ac3ac4d88329821a3c9436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2
 --- !u!61 &1625000224177011283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -105,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -121,3 +110,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &5676234272545196741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859123464206317551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f1034c74ac3ac4d88329821a3c9436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _bulletObj: {fileID: 1133594412368707239, guid: 31825622594b4934dadc48f2bd3f9873,
+    type: 3}
+  _damage: 5
+--- !u!114 &238843135768288837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859123464206317551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44aa668c479cc54aa6cfd4e53fbd26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _gold: 30
+--- !u!114 &6940477043793020995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859123464206317551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16229c1a64be53947bcdaa7742b556de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
