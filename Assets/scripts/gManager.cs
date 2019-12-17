@@ -65,7 +65,6 @@ public class gManager : MonoBehaviour
         {
             _health = value;
             _healthText.GetComponent<Text>().text = "Health: " + _health;
-            Debug.Log(isLose);
             if (_health <= 0 && !isLose)
             {
                 isLose = true;

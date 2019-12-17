@@ -31,8 +31,4 @@ public class enemyHealth : MonoBehaviour
             }
         }
     }
-    void Update()
-    {
-        Debug.Log("hp - " + _health);
-    }
 }

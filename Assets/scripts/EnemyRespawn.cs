@@ -32,7 +32,6 @@ public class EnemyRespawn : MonoBehaviour
                 if (_enemiesSpawned  < _waves[_currWave].maxEnemies)
                 {
                     GameObject _enemyNew = Instantiate(_waves[_currWave]._enemy, transform.position, transform.rotation);
-                    Debug.Log("Create enemy");
                     _lastSpawn = Time.time;
                     _enemiesSpawned++;
                 }
@@ -57,6 +56,5 @@ public class Wave
 {
     public GameObject _enemy;
     public float spawnInterval = 2;
-    //public int maxEnemies = 20;
     public int maxEnemies = 20;
 }
