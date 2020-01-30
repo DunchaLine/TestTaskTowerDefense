@@ -14,6 +14,7 @@ public class gManager : MonoBehaviour
     private int _wave;
     private int _health;
     public bool isLose = false;
+    public int _enemyLVL;
     void Start()
     {
         Gold = 500;
@@ -29,6 +30,18 @@ public class gManager : MonoBehaviour
                 SceneManager.LoadScene(0);
                 Time.timeScale = 1;
             }
+        }
+    }
+    public int Enemy
+    {
+        get
+        {
+            return _enemyLVL;
+        }
+        set
+        {
+            if (value <= 3)
+                _enemyLVL = value;
         }
     }
     public int Gold
