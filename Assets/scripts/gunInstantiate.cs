@@ -4,19 +4,28 @@ using System.Collections;
 
 public class gunInstantiate : MonoBehaviour
 {   
+    public GameObject gunPrefab;
+    public int cost1lvl;
+    public GameObject managerObj;
     private GameObject _gun;
-    public GameObject _gunPrefab;
-    private bool canInstantiate = true;
+    private int _gold;
+    private gManager _manager;
+    private bool _canInstantiate;
     private UpLevel _currLvl;
-    public int _cost1lvl;
-    public gManager _manager;
+    
+    void Start()
+    {
+        _manager = managerObj.GetComponent<gManager>();
+        _canInstantiate = true;
+    }
     void OnMouseUp()
     {
-        if (canInstantiate && _manager.Gold - _cost1lvl >= 0) //исправить для возможности улучшения
+        _gold = _manager.Gold;
+        if (_canInstantiate && _manager.Gold - cost1lvl >= 0) //исправить для возможности улучшения
         {
-            _gun = Instantiate(_gunPrefab, transform.position, Quaternion.identity);
-            canInstantiate = false;
-            _manager.Gold -= _cost1lvl;
+            _gun = Instantiate(gunPrefab, transform.position, Quaternion.identity);
+            _canInstantiate = false;
+            _manager.Gold -= cost1lvl;
         }
     }
 }

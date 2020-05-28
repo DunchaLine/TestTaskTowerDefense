@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class targetGun : MonoBehaviour
 {
+    public float interval;
+    public GameObject bullet;
+    [HideInInspector] public Vector3 direction;
     private float _angle;
-    [HideInInspector] public Vector3 _direction;
-    public float _interval;
     private float _tmpTime = 0.0f;
-    public GameObject _bullet;
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            _direction = other.transform.position - transform.position;
-            _angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            direction = other.transform.position - transform.position;
+            _angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, _angle);
             if (Time.time > _tmpTime)
             {
-                _tmpTime = Time.time + _interval;
-                GameObject _tmp = GameObject.Instantiate(_bullet, other.transform.position, Quaternion.identity);
+                _tmpTime = Time.time + interval;
+                GameObject _tmp = GameObject.Instantiate(bullet, other.transform.position, Quaternion.identity);
                 Destroy(_tmp, 1f);
             }
         }

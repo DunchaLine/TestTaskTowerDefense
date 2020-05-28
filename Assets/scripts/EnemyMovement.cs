@@ -4,54 +4,55 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float _speed;
-    private Transform waypoints;
-    private Transform curr_waypoint;
+    public GameObject managerObject;
+    public float speed;
+    public int damage;
+    private Transform _waypoints;
+    private Transform _curr_waypoint;
     private int _indexWaypoint = 0;
     private Vector3 _direction;
-    private float rot = 0;
+    private float _rotation = 0;
     private enemyHealth _health;
-    public GameObject _bulletObj;
-    public int _damage;
+    private gManager _manager;
     void Start()
     {
         _health = GetComponent<enemyHealth>();
-        waypoints = GameObject.FindGameObjectWithTag("Waypoints").transform;
+        _manager = managerObject.GetComponent<gManager>();
+        _waypoints = GameObject.FindGameObjectWithTag("Waypoints").transform;
         NextWaypoint();
     }
     
     void Update()
     {
-        _direction = curr_waypoint.transform.position - transform.position;
-        transform.Translate(_direction.normalized * _speed * Time.deltaTime, Space.World);
+        Debug.Log(gameObject + " health: " + _health.Health);
+        _direction = _curr_waypoint.transform.position - transform.position;
+        transform.Translate(_direction.normalized * speed * Time.deltaTime, Space.World);
         if (_direction.magnitude <= .1f)
         {
             NextWaypoint();
-            _direction = curr_waypoint.transform.position - transform.position;
-            rot += Vector3.SignedAngle(_direction, transform.right, Vector3.up);
-            transform.rotation = Quaternion.AngleAxis(rot, transform.forward);
+            _direction = _curr_waypoint.transform.position - transform.position;
+            _rotation += Vector3.SignedAngle(_direction, transform.right, Vector3.up);
+            transform.rotation = Quaternion.AngleAxis(_rotation, transform.forward);
         }
     }
 
     void NextWaypoint()
     {
         _indexWaypoint++;
-        if (_indexWaypoint >= waypoints.childCount)
+        if (_indexWaypoint >= _waypoints.childCount)
         {
-            gManager _manager = GameObject.Find("GameManager").GetComponent<gManager>();
-            _manager.Health -= _health._damage;
+            _manager.Health -= _health.damage;
             Destroy(gameObject);
             return;
         }
-        curr_waypoint = waypoints.GetChild(_indexWaypoint);
+        _curr_waypoint = _waypoints.GetChild(_indexWaypoint);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Bullet")
+        if (other.gameObject.CompareTag("Bullet"))
         {
-            _health.Health -= _damage;
-            gManager _manager = GameObject.Find("GameManager").GetComponent<gManager>();
+            _health.Health -= damage;
         }
     }
 }

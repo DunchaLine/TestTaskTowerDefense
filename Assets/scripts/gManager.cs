@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class gManager : MonoBehaviour
 {
-    public Text _goldText;
-    public Text _waveText;
-    public Text _healthText;
-    public GameObject _loseText;
+    public Text goldText;
+    public Text waveText;
+    public Text healthText;
+    public GameObject loseText;
+    public bool isLose = false;
+    //public int enemyLVL;
     private int _gold;
     private int _wave;
     private int _health;
-    public bool isLose = false;
-    public int _enemyLVL;
-    void Start()
+    void Awake()
     {
         Gold = 500;
         Wave = 0;
@@ -32,18 +32,18 @@ public class gManager : MonoBehaviour
             }
         }
     }
-    public int Enemy
-    {
-        get
-        {
-            return _enemyLVL;
-        }
-        set
-        {
-            if (value <= 3)
-                _enemyLVL = value;
-        }
-    }
+    // public int Enemy
+    // {
+    //     get
+    //     {
+    //         return enemyLVL;
+    //     }
+    //     set
+    //     {
+    //         if (value <= 3)
+    //             enemyLVL = value;
+    //     }
+    // }
     public int Gold
     {
         get
@@ -53,7 +53,7 @@ public class gManager : MonoBehaviour
         set
         {
             _gold = value;
-            _goldText.GetComponent<Text>().text = "Gold: " + _gold;
+            goldText.GetComponent<Text>().text = "Gold: " + _gold;
         }
     }
     public int Wave
@@ -65,7 +65,7 @@ public class gManager : MonoBehaviour
         set
         {
             _wave = value;
-            _waveText.GetComponent<Text>().text = "Wave: " + (_wave + 1);
+            waveText.GetComponent<Text>().text = "Wave: " + (_wave + 1);
         }
     }
     public int Health
@@ -77,11 +77,11 @@ public class gManager : MonoBehaviour
         set
         {
             _health = value;
-            _healthText.GetComponent<Text>().text = "Health: " + _health;
+            healthText.GetComponent<Text>().text = "Health: " + _health;
             if (_health <= 0 && !isLose)
             {
                 isLose = true;
-                _loseText.SetActive(true);
+                loseText.SetActive(true);
                 Time.timeScale = 0;
             }
         }

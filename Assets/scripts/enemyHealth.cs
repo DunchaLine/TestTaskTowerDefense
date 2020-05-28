@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour
 {
+    public int gold;
+    public int damage;
     private int _health;
-    public int _damage;
     private gManager _manager;
-    public int _gold;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class enemyHealth : MonoBehaviour
             if (_health <= 0)
             {
                 Destroy(gameObject);
-                _manager.Gold += _gold;
+                _manager.Gold += gold;
             }
         }
     }
